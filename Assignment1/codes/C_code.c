@@ -13,6 +13,7 @@ int main()
   P = 600;
   n = 2.5 * 12;
   r = 10;
+  
   MV = recdep(P, n, r);
   printf("The maturity value of the recurring deposit is %d\n", MV);
 
