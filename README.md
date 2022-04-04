@@ -4,5 +4,7 @@ This is the assignments repository for the Probability and random variables cour
 Instructor :- Dr G.V.V. Sharma
 
 
+
 Name :- Archit Ganvir
+
 Roll No. :- CS21BTECH11005
