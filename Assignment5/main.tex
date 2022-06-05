@@ -1,0 +1,107 @@
+\documentclass{beamer}
+
+\usepackage{amsmath}
+
+\def\inputGnumericTable{}
+
+\usepackage[latin1]{inputenc}
+\usepackage{color}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{ifthen}
+
+\usepackage{lscape}
+
+\usetheme{CambridgeUS}
+
+\title{Assignment 5}
+\author{Archit Ganvir (CS1BTECH11005)}
+\date{\today}
+\logo{\large \LaTeX{}}
+
+\begin{document}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\begin{frame}
+
+\titlepage
+
+\begin{abstract}
+This document gives the solution for Assignment 5 (Papoulis ch.8 Problem 8.7).
+\end{abstract}
+
+\end{frame}
+
+\logo{}
+
+\begin{frame}{Question}
+
+(Problem 8.7) Q.) (Estimation-prediction) The time to failure of electric bulbs of brand A is a normal random variable with $\sigma = 10$ hours and unknown mean. We have used 20 such bulbs and have observed that the average $\overline{x}$ of their time to failure is 80 hours. We buy a new bulb of the same brand and wish to predict with 95\% confidence that its time to failure will be in the interval $80 \pm c$. Find $c$.
+
+\end{frame}
+
+\begin{frame}{Solution}
+
+Solution : Let the random variable be $x$.
+
+In this problem, we are given the average $\overline{x}$ of $n$ samples of an N($\eta, \sigma$) R.V. $x$ and we wish to predict the value of $x$ in a future trial with a confidence coefficient of $\gamma$, where\\
+$\overline{x} = 80$,\\
+$n = 20$,\\
+$\sigma = 10$,\\
+$\gamma = 0.95$
+
+If $\eta$ was known, then we would have an ordinary prediction problem.\\
+Hence, we must first estimate $\eta$.
+
+\end{frame}
+
+\begin{frame}
+
+To estimate $\eta$, we form a R.V. $w = x - \overline{x}$.\\
+This R.V. has N($0, \sigma _w$), where
+\begin{align}
+\sigma _w ^2 &= \sigma _{x - \overline{x}} ^2 \\
+&= \sigma _x ^2 + \sigma _{\overline{x}} ^2 \\
+&= \sigma ^2 + \frac{\sigma ^2}{n} \\
+&= 100 + \frac{100}{20} \\
+&= 100 + 5 \\
+&= 105 \\
+\Rightarrow \sigma _w &= \sqrt{105}
+\end{align}
+
+\end{frame}
+
+\begin{frame}
+
+We know that
+\begin{align}
+c &= z_{0.975} \sigma _w \\
+&= 2 \sqrt{105}
+\end{align}
+
+We also know that
+\begin{align}
+P(|w| < c) = \gamma
+\end{align}
+
+\begin{align}
+P(\overline{x} - c < x < \overline{x} + c) = 0.95
+\end{align}
+
+\end{frame}
+
+\begin{frame}
+
+Therefore, we get the value of $c$ as $2\sqrt{105} \approx 20.494$.
+
+The code in
+\begin{block}{}
+Assignment5/codes/prob.py
+\end{block}
+verifies the solution.
+
+\end{frame}
+
+\end{document}
