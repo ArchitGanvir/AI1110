@@ -1,0 +1,80 @@
+\documentclass{beamer}
+
+\usepackage{amsmath}
+
+\def\inputGnumericTable{}
+
+\usepackage[latin1]{inputenc}
+\usepackage{color}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{ifthen}
+
+\usepackage{lscape}
+
+\usetheme{CambridgeUS}
+
+\title{Assignment 6}
+\author{Archit Ganvir (CS1BTECH11005)}
+\date{\today}
+\logo{\large \LaTeX{}}
+
+\begin{document}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\begin{frame}
+
+\titlepage
+
+\begin{abstract}
+This document gives the solution for Assignment 6 (Papoulis ch.9 Problem 9.10).
+\end{abstract}
+
+\end{frame}
+
+\logo{}
+
+\begin{frame}{Question}
+
+(Problem 9.10) Q.) The process x(t) is normal WSS and E\{x(t)\} = O. Show that if z(t) = $x^2$(t), then $C_{zz}(\tau) = 2C_{xx}^2(\tau)$.
+
+\end{frame}
+
+\begin{frame}{Solution}
+
+Solution : We shall show that if x is a normal process with zero mean and z(t) = $x^2$(t), then $C_{zz}(\tau) = 2 C_{xx}^2(\tau)$.
+
+We know that if the random variables $x_i$ are jointly normal with zero mean, and E\{$x_i x_j$\} = $C_{ij}$, then
+\begin{align}
+E\{x_1 x_2 x_3 x_4\} = C_{12} C_{34} + C_{13} C_{24} + C_{14} C_{23}
+\end{align}
+
+\end{frame}
+
+\begin{frame}
+
+Hence, if the R.V.s $x_k$ are normal and E\{$x_k$\} = 0, then
+\begin{align}
+E\{x_1 x_2 x_3 x_4\} = E\{x_1 x_2\} E\{x_3 x_4\} + E\{x_1 x_3\} E\{x_2 x_4\} + E\{x_1 x_4\} E\{x_2 x_3\}
+\end{align}
+
+With $x_1 = x_2 = x(t + \tau)$ and $x_3 = x_4 = x(t)$, we conclude that the autocorrelation of z(t) equals
+\begin{align}
+E\{x^2(t + \tau)x^2(t)\} &= E^2\{x^2(t + \tau)\} + 2 E^2\{x(t + \tau) x(t)\} \\
+&= R_{xx}^2 (0) + 2 R_{xx}^2(\tau)
+\end{align}
+
+\end{frame}
+
+\begin{frame}
+
+And since $R_{xx}(\tau) = C_{xx}(\tau)$, and $E\{z(t)\} = R_{xx} (0)$, the above yields
+\begin{align}
+C_{zz}(\tau) = R_{zz}(\tau) - E^2 \{z(t)\} = 2 C_{xx}^2(\tau)
+\end{align}
+
+\end{frame}
+
+\end{document}
