@@ -1,0 +1,88 @@
+\documentclass{beamer}
+
+\usepackage{amsmath}
+\usepackage{gensymb}
+
+\def\inputGnumericTable{}
+
+\usepackage[latin1]{inputenc}
+\usepackage{color}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{ifthen}
+
+\usepackage{lscape}
+
+\usetheme{CambridgeUS}
+
+\title{Assignment 8}
+\author{Archit Ganvir (CS21BTECH11005)}
+\date{\today}
+\logo{\large \LaTeX{}}
+
+\begin{document}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\begin{frame}
+
+\titlepage
+
+\begin{abstract}
+This document gives the solution for Assignment 8 (Papoulis ch.12 Problem 12-21).
+\end{abstract}
+
+\end{frame}
+
+\logo{}
+
+\begin{frame}{Question}
+
+(Problem 12-21) Q.) If the reflection coefficients satisfy $s_k = p^k \cdot k = 1 \rightarrow \infty$ where $|p| < 1$, then show that all zeros of the Levinson polynomial $P_n(z)$, $n = 1 \rightarrow \infty$ lie on the circle of radius $1 / p$.
+
+\end{frame}
+
+\begin{frame}{Solution}
+
+Solution: We know the recursion :-
+\begin{align}
+\sqrt{1 - s_n^2} P_n(z) = P_{n - 1}(z) - z s_n \tilde{P}_{n - 1}(z) \label{eq:eq1}
+\end{align}
+where, $n = 1 \rightarrow \infty$
+
+Substituting $s_n = p^n$, $|p| < 1$ in eq.\eqref{eq:eq1}, we get :-
+\begin{align}
+\sqrt{1 - p^{2n}} P_n(z) = P_{n - 1}(z) - (z p)^n P_{n - 1}^*(z^*)
+\end{align}
+
+
+\end{frame}
+
+\begin{frame}
+
+Let $x = z p$ and
+\begin{align}
+P_n(z) = P_n(x / p) \triangleq A_n(x)
+\end{align}
+
+so that the above iteration reduces to :-
+\begin{align}
+\sqrt{1 - p^{2n}} A_n(x) &= A_{n - 1}(x) - x^n A_{n - 1}^*(1 / x^*) \\
+&= A_{n - 1}(x) - x \tilde{A}_{n - 1}(x)
+\end{align}
+
+\end{frame}
+
+\begin{frame}
+
+We know that the polynomial $A_n(x)$ has all its zeros on the unit circle (since $s_n = 1$), i.e.
+\begin{align}
+x_k = e^{j \theta _k} = z_k p
+\end{align}
+
+Hence, the zeros $z_k = (1 / p) e^{j \theta _k}$ or $|z_k| = 1 / p$. (The zeroes of $P_n(z)$ lie on a circle of radius $1/p$).
+
+\end{frame}
+
+\end{document}
